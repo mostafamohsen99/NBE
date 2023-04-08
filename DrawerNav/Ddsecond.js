@@ -4,7 +4,7 @@ import React from 'react'
 const DdSecond = () => {
   return (
     <View>
-      <Text>DarkMode</Text>
+      <Text>DarkMdddode</Text>
     </View>
   )
 }
