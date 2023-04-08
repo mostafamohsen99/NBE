@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "256395437484",
+    "project_id": "nbe-bank-ahly",
+    "storage_bucket": "nbe-bank-ahly.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:256395437484:android:178f87ada81bd622f7c609",
+        "android_client_info": {
+          "package_name": "com.NBE"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "256395437484-91dgsfh1us0bn6m4ea9i0e297v16s06h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDpj0r516kI-YeL81C6vFO4HtLTjM3DkXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "256395437484-91dgsfh1us0bn6m4ea9i0e297v16s06h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

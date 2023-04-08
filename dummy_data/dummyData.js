@@ -1,0 +1,450 @@
+export const CardItems=[
+    {
+        name:'Accounts',
+        Image:require('.././assets/images/CardImages/Account.png'),
+        backgroundColor:'#00C97426'
+    },
+    {
+        name:'Cards',
+        Image:require('.././assets/images/CardImages/Cards.png'),
+        backgroundColor:'#00ADF826'
+    },
+    {
+        name:'Utilites',
+        Image:require('.././assets/images/CardImages/Utilities.png'),
+        backgroundColor:'#F6A72126'
+    },
+    {
+        name:'History',
+        Image:require('.././assets/images/CardImages/History.png'),
+        backgroundColor:'#FF002E26'
+    }
+]
+export const peopleCardItems=[
+    {
+        name:'Hala',
+        img:require('.././assets/images/CardImages/Hala.png')
+    },
+    {
+        name:'Ayman',
+        img:require('.././assets/images/CardImages/Ayman.png')
+    },
+    {
+        name:'Alex',
+        img:require('.././assets/images/CardImages/Alex.png')
+    },
+    {
+        name:'Soha',
+        img:require('.././assets/images/CardImages/Soha.png')
+    },
+    {
+        name:'Hana',
+        img:require('.././assets/images/CardImages/Soha.png')
+    },
+    {
+        name:'Mona',
+        img:require('.././assets/images/CardImages/Alex.png')
+    },
+    {
+        name:'Mostafa',
+        img:require('.././assets/images/CardImages/Ayman.png')
+    }
+]
+export const HISTORY=[
+    {
+        id:'a',
+        name:'Carrefour',
+        date:'15-12-2021',
+        price:'250.21',
+        img:require('.././assets/images/CardImages/History/Carrefour.png')
+    },
+    {
+        id:'b',
+        name:'Amazon',
+        date:'02-12-2021',
+        price:'3004.21',
+        img:require('.././assets/images/CardImages/History/Amazon.png')
+    },
+    {
+        id:'c',
+        name:'Jumia',
+        date:'28-11-2021',
+        price:'2146.63',
+        img:require('.././assets/images/CardImages/History/Jumia.png')
+    },
+    {
+        id:'d',
+        name:'Hala Slimen',
+        date:'12-11-2021',
+        price:'5140',
+        img:require('.././assets/images/CardImages/History/Carrefour.png')
+    },
+    {
+        id:'e',
+        name:'IKEA',
+        date:'03-11-2021',
+        price:'12547.96',
+        img:require('.././assets/images/CardImages/History/Ikea.png')
+    },
+    {
+        id:'f',
+        name:'Carrefour',
+        date:'13-12-2021',
+        price:'250.21',
+        img:require('.././assets/images/CardImages/History/Carrefour.png')
+    }
+]
+export const CREDITCARDIMAGES=[
+    {
+        id:'1',
+        img:require('.././assets/images/CardImages/Cards/Green.png')
+    },
+    {
+        id:'2',
+        img:require('.././assets/images/CardImages/Cards/Blue.png')
+    },
+    {
+        id:'3',
+        img:require('.././assets/images/CardImages/Cards/Red.png')
+    },
+    {
+        id:'4',
+        img:require('.././assets/images/CardImages/Cards/Green_2.png')
+    },
+    {
+        id:'5',
+        img:require('.././assets/images/CardImages/Cards/Blue_2.png')
+    },
+    {
+        id:'6',
+        img:require('.././assets/images/CardImages/Cards/Red_2.png')
+    }
+]
+export let BENEFICIERS_USERS=[
+    {
+        id:'1',
+        img:require('.././assets/images/Benefeciaries/people/Abeer.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Abeer',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'2',
+        img:require('.././assets/images/Benefeciaries/people/Ahmed.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Ahmed',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'3',
+        img:require('.././assets/images/Benefeciaries/people/Alaa.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Alaa',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'4',
+        img:require('.././assets/images/Benefeciaries/people/Aly.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Aly',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'5',
+        img:require('.././assets/images/Benefeciaries/people/Amr.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Amr',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'6',
+        img:require('.././assets/images/Benefeciaries/people/Aziz.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Aziz',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'7',
+        img:require('.././assets/images/Benefeciaries/people/Caroline.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Caroline',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'8',
+        img:require('.././assets/images/Benefeciaries/people/dalia.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Dalia',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'9',
+        img:require('.././assets/images/Benefeciaries/people/hagar.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Hagar',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'10',
+        img:require('.././assets/images/Benefeciaries/people/Hana.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Hana',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'11',
+        img:require('.././assets/images/Benefeciaries/people/Mark.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Mark',
+        lastname:'Ehab',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'12',
+        img:require('.././assets/images/Benefeciaries/people/Mohamed.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Mohamed',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'13',
+        img:require('.././assets/images/Benefeciaries/people/Mohsen.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Mohsen',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'14',
+        img:require('.././assets/images/Benefeciaries/people/mona.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Mona',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'15',
+        img:require('.././assets/images/Benefeciaries/people/mostafa.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Mostafa',
+        lastname:'Mahmoud',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'16',
+        img:require('.././assets/images/Benefeciaries/people/Nader.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Nader',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'17',
+        img:require('.././assets/images/Benefeciaries/people/Noha.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Noha',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'18',
+        img:require('.././assets/images/Benefeciaries/people/Nourhan.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Nourhan',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'19',
+        img:require('.././assets/images/Benefeciaries/people/omar.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'omar',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'20',
+        img:require('.././assets/images/Benefeciaries/people/Rewan.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Rewan',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'21',
+        img:require('.././assets/images/Benefeciaries/people/shaimaa.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Shaimaa',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'22',
+        img:require('.././assets/images/Benefeciaries/people/William.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'William',
+        lastname:'Ehab',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'23',
+        img:require('.././assets/images/Benefeciaries/people/Yohanna.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Yohanna',
+        lastname:'Ehab',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    },
+    {
+        id:'24',
+        img:require('.././assets/images/Benefeciaries/people/Youssef.png'),
+        phoneNumber:'+20 123 456 789',
+        price:'$802,828,61',
+        Firstname:'Youssef',
+        lastname:'Ismail',
+        Bankbranch:'045-Almaza',
+        Accountnumber:'11119199191',
+        email:'123456789@NBE.com'
+    }
+]
+export const TRANSACTIONS=[
+    {
+        id:'1',
+        name:'Flat Rent',
+        date:'15-12-2021',
+        price:'892.48'
+    },
+    {
+        id:'2',
+        name:'House Fixes',
+        date:'20-5-2021',
+        price:'764.92'
+    },
+    {
+        id:'3',
+        name:'new Laptop',
+        date:'10-4-2021',
+        price:'647.67'
+    },
+    {
+        id:'4',
+        name:'College Expenses',
+        date:'12-02-2021',
+        price:'647.67'
+    },
+    {
+        id:'5',
+        name:'Car loan',
+        date:'10-02-2021',
+        price:'755.45'
+    },
+    {
+        id:'6',
+        name:'Mom wants some money',
+        date:'03-02-2021',
+        price:'743.45'
+    },
+    {
+        id:'7',
+        name:'New dress',
+        date:'25-01-2021',
+        price:'25.76'
+    },
+    {
+        id:'8',
+        name:'Birthday gift for ross and rachel',
+        date:'28-12-2020',
+        price:'538.96'
+    },
+    {
+        id:'9',
+        name:'New Watch',
+        date:'25-01-2021',
+        price:'25.76'
+    },
+    {
+        id:'10',
+        name:'Birthday gift for Mother',
+        date:'28-12-2020',
+        price:'538.96'
+    }
+]
