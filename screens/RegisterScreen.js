@@ -39,7 +39,7 @@ export default function RegisterScreen() {
     const[language,setLanguage]=useState('');
     const[username,setUsername]=useState();
     const[password,setPassword]=useState();
-    //authstatechanged
+    //authstatechange
     const[user,SetUser]=useState();
     const[initializing,setInitializing]=useState(true);
     //console.log('language inside reg screen',langSelector);
