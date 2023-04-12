@@ -24,6 +24,7 @@ import { BenefecierActions } from '../store/Benefecier-slice';
 import { TransferActions } from '../store/Transfer-slice';
 import  '../i18n/i18n';
 import {useTranslation} from 'react-i18next';
+import { useMutation } from 'react-query';
 
 export default function RegisterScreen() {
   const {t, i18n} = useTranslation();
@@ -72,31 +73,57 @@ export default function RegisterScreen() {
     {
         setModalVisible(true);
     }
-    async function loginHandler()
-    {
-      const email=username+'@nbe.com';
-      const user=await auth()
-  .signInWithEmailAndPassword(email,password)
-  .then((credentials) => {
-    console.log('User account created & signed in!');
-    return credentials;
-  })
-  .catch(error => {
-    if (error.code === 'auth/email-already-in-use') {
-      console.log('That email address is already in use!');
-    }
+    const LoginHandler=useMutation(
+      async ()=>{
+        const email=username+'@nbe.com';
+        const user=await auth()
+        .signInWithEmailAndPassword(email,password)
+        .then((credentials) => {
+          console.log('User account created & signed in!');
+          return credentials;
+        })
+        .catch(error => {
+          if (error.code === 'auth/email-already-in-use') {
+            console.log('That email address is already in use!');
+          }
+      
+          if (error.code === 'auth/invalid-email') {
+            console.log('That email address is invalid!');
+          }
+          console.error(error);
+        });
+        dispatch(authActions.login({
+          username:username,
+          userid:user.user.uid,
+        }))
+        navigation.navigate('FirstDrawerNav');
+      }
+    )
+  //   async function loginHandler()
+  //   {
+  //     const email=username+'@nbe.com';
+  //     const user=await auth()
+  // .signInWithEmailAndPassword(email,password)
+  // .then((credentials) => {
+  //   console.log('User account created & signed in!');
+  //   return credentials;
+  // })
+  // .catch(error => {
+  //   if (error.code === 'auth/email-already-in-use') {
+  //     console.log('That email address is already in use!');
+  //   }
 
-    if (error.code === 'auth/invalid-email') {
-      console.log('That email address is invalid!');
-    }
-    console.error(error);
-  });
-  dispatch(authActions.login({
-    username:username,
-    userid:user.user.uid,
-  }))
-  navigation.navigate('FirstDrawerNav');
-    }
+  //   if (error.code === 'auth/invalid-email') {
+  //     console.log('That email address is invalid!');
+  //   }
+  //   console.error(error);
+  // });
+  // dispatch(authActions.login({
+  //   username:username,
+  //   userid:user.user.uid,
+  // }))
+  // navigation.navigate('FirstDrawerNav');
+  //   }
     function usernameHandler(name)
     {
       setUsername(name);
@@ -105,9 +132,9 @@ export default function RegisterScreen() {
     {
       setPassword(pass)
     }
-    async function ModalPressHandler()
-    {
-      setModalVisible(false);
+    const ModalPressFn=useMutation(
+      async()=>{
+        setModalVisible(false);
       const username='123456789';
       const email=username+'@nbe.com';
       const password='123456789Mm-';
@@ -132,12 +159,41 @@ export default function RegisterScreen() {
         userid:user.user.uid,
       }))
       navigation.navigate('FirstDrawerNav');
-    }
+      }
+    )
+    // async function ModalPressHandler()
+    // {
+    //   setModalVisible(false);
+    //   const username='123456789';
+    //   const email=username+'@nbe.com';
+    //   const password='123456789Mm-';
+    //   const user=await auth()
+    //   .signInWithEmailAndPassword(email,password)
+    //   .then((credentials) => {
+    //     console.log('User account created & signed in!');
+    //     return credentials;
+    //   })
+    //   .catch(error => {
+    //     if (error.code === 'auth/email-already-in-use') {
+    //       console.log('That email address is already in use!');
+    //     }
+    
+    //     if (error.code === 'auth/invalid-email') {
+    //       console.log('That email address is invalid!');
+    //     }
+    //     console.error(error);
+    //   });
+    //   dispatch(authActions.login({
+    //     username:username,
+    //     userid:user.user.uid,
+    //   }))
+    //   navigation.navigate('FirstDrawerNav');
+    // }
     function onAuthStateChanged(user)
     {
-      console.log('AuthStateChanged-----------');
+    //  console.log('AuthStateChanged-----------');
       SetUser(user)
-      console.log('user----------------------------------------------------',user);
+   //   console.log('user----------------------------------------------------',user);
       if(initializing)
       setInitializing(false)
     }
@@ -156,9 +212,9 @@ export default function RegisterScreen() {
       }
       dispatch(BenefecierActions.removeBeneficiers());
       dispatch(TransferActions.removeTransfer());
-      console.log('isRTL',I18nManager.isRTL);
-      console.log('isFromDrawerSelector',isFromDrawerSelector);
-      console.log('langSelector After RegScreen',langSelector);
+   //   console.log('isRTL',I18nManager.isRTL);
+   //   console.log('isFromDrawerSelector',isFromDrawerSelector);
+   //   console.log('langSelector After RegScreen',langSelector);
     },[])
     if(initializing)
     return null;
@@ -166,7 +222,8 @@ export default function RegisterScreen() {
     <View>
       <Modall
       word={t('loginwithFingerPrint')}
-      PressHandler={ModalPressHandler}
+      // PressHandler={ModalPressHandler}
+      PressHandler={ModalPressFn.mutate}
       modalVisible={modalVisible}
       setModalVisible={setModalVisible}
       />
@@ -198,7 +255,7 @@ export default function RegisterScreen() {
       showPassword={showPassword}
       signupHandler={signupHandler}
       fingerprintHandler={fingerprintHandler}
-      loginHandler={loginHandler}
+      loginHandler={LoginHandler.mutate}
       username={username}
       password={password}
       />

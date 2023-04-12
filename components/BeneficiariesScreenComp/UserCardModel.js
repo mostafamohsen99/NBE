@@ -9,7 +9,7 @@ const UserCardModel= ({id,name,img,email,phonenumber}) => {
     const[t,i18n]=useTranslation();
     function PressHandler()
     {
-        console.log('pressed');
+      //  console.log('pressed');
         navigation.navigate(t('Account Summary'),{screen:t('Transfer')})
     }
   return (

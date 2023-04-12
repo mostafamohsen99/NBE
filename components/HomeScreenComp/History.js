@@ -5,12 +5,15 @@ import HistoryItems from './HistoryItems'
 import { useSelector } from 'react-redux'
 import { useTranslation } from 'react-i18next'
 import CustomText from '../UI/CustomText'
+import {useQueryClient} from 'react-query';
 
 const History = ({cardsVisible}) => {
+  const queryClient=useQueryClient();
+  const items=queryClient.getQueryData('Transactions');
   const [t,i18n]=useTranslation();
   const username=useSelector(state=>state.auth.username);
-  const items=useSelector(state=>state.Transfer.items);
-  console.log('items',items);
+  //const items=useSelector(state=>state.Transfer.items);
+  //console.log('items',items);
   return (
     <View>
       <View style={styles.HeaderView}>
@@ -33,7 +36,7 @@ const History = ({cardsVisible}) => {
            price={item.amount}
            />
         }}
-        keyExtractor={item=>item.id}
+        keyExtractor={item=>item.date}
         />  
       </View>}
       {items.length===0&&<View style={styles.noTransactionView}>

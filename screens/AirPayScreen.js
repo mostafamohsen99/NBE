@@ -8,8 +8,10 @@ import Modall from '../components/UI/Modal';
 import SecModal from '../components/UI/SecModal';
 import { useTranslation } from 'react-i18next';
 import CustomText from '../components/UI/CustomText';
+import {useQueryClient} from 'react-query'
 
 const AirPayScreen = () => {
+  const queryClient=useQueryClient();
     const[card,setCard]=useState(null);
     const[isDragged,setIsDragged]=useState(null);
     const[modalVisible,setModalVisible]=useState(false);

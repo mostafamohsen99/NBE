@@ -4,8 +4,7 @@ import FirstSection from '../components/MobileNumber/FirstSection'
 import MobileForm from '../components/MobileNumber/MobileForm'
 import {useState,useEffect} from 'react';
 import { useNavigation } from '@react-navigation/native';
-import { useSelector } from 'react-redux';
-import {useTranslation} from 'react-i18next';
+
 
 
 

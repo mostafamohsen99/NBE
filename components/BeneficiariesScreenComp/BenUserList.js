@@ -6,32 +6,47 @@ import firestore from '@react-native-firebase/firestore';
 import { useSelector } from 'react-redux';
 
 
+
+
 const BenUserList = ({id,name,img,price,phonenumber,email}) => {
+    //console.log('phoneNumberInside',phonenumber);
     const navigation=useNavigation();
     const username=useSelector(state=>state.auth.username);
-    let list=[];
+    //const{isLoading,error,isError,isFetching,data:TransBetweenUsers}=useQuery(['TransBetweenUsers'],()=>fetchDataBetweenBen('Transactions',username,phonenumber))
+    let list;
     async function UserPressHandler()
     {
         try{
+            list=[];
             const firestore_data=await firestore().collection('Transactions').get().then((querysnapShot)=>{
                 querysnapShot.forEach(snapshot=>{
                     let data=snapshot.data();
                     if((data.transferFrom===username&&data.transferTo===phonenumber)||
                     (data.transferFrom===phonenumber&&data.transferTo===username))
                     {
-                        list.push({...data,id:Math.random()});
+                      list.push({...data,id:Math.random()});
                     }
                 })
             })
-            
-           const TransactionBetweenUsers=firestore_data;
-           console.log('TransactionBetwen',TransactionBetweenUsers);
+            // const firestore_dat=await firestore().collection('Transactions').get();
+            // let firestore_dat_t=firestore_dat.docs.map(doc=> {
+            //     let data=doc.data();
+            //     if((data.transferFrom===username&&data.transferTo===phonenumber)||
+            //     (data.transferFrom===phonenumber&&data.transferTo===username))
+            //     {
+            //       list_2.push({...data,id:Math.random()});
+            //     }
+            //     console.log('list_2',list_2);
+            //     return list_2;
+            // });
+            // let firestore_dat_m=firestore_dat_t[0];
+            // console.log('firestore_dat_t',firestore_dat_m);
         }
         catch(err){
             console.log('err',err);
         }
-        console.log('list',list);
         navigation.navigate('TransactionsHistoryScreen',{
+            Currentuser:username,
             Userid:phonenumber,
             Username:name,
             Userimg:img,
@@ -41,7 +56,6 @@ const BenUserList = ({id,name,img,price,phonenumber,email}) => {
             list:list
         })
     }
-    
   return (
     <Pressable onPress={UserPressHandler}>
         <UserCard

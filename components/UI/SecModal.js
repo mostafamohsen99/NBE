@@ -7,8 +7,8 @@ import CustomText from './CustomText'
 
 const SecModal = ({img,Txt,firstname,lastname,buttonWord,finishHandler,modalVisible,setModalVisible,success,transferFrom,transferTo}) => {
   const [t,i18n]=useTranslation();
-  console.log('success',success);
-  console.log('buttonWord',buttonWord)
+ // console.log('success',success);
+ // console.log('buttonWord',buttonWord)
   return (
     <Modal
     animationType="none"

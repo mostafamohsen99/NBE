@@ -29,9 +29,7 @@ t("048-Mokattam"),
         <SelectDropdown
 	data={countries}
 	onSelect={(selectedItem, index) => {
-		//console.log(selectedItem, index)
         setBankbranch(selectedItem);
-        //console.log("bankbranch",bankbranch);
 	}}
 	buttonTextAfterSelection={(selectedItem, index) => {
 		return selectedItem

@@ -48,7 +48,7 @@ function Root()
         {
           const savedNavigationState=await AsyncStorage.getItem(PERSISTENCE_KEY)
           const state=savedNavigationState?JSON.parse(savedNavigationState):undefined
-          console.log('state_inside_useeffect',state)
+         // console.log('state_inside_useeffect',state)
           if(state!==undefined)
           {
             setInitialState(state)

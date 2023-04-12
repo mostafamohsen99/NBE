@@ -8,110 +8,43 @@ import { FlatList } from 'react-native-gesture-handler';
 import { CREDITCARDIMAGES } from '../dummy_data/dummyData';
 import firestore from '@react-native-firebase/firestore';
 import { useSelector,useDispatch } from 'react-redux';
-import { PriceActions } from '../store/price-slice';
-import { TransferActions } from '../store/Transfer-slice';
 import { useTranslation } from 'react-i18next';
+import { useQuery } from 'react-query'
+
+
+  //UseQuery
+  const fetchPriceFromUser=async(firstCol,firstDoc)=>{
+    const Price=await firestore().collection(firstCol).doc(firstDoc).get();
+    let price_data={id:Price.data().name,updatedPrice:Price.data().price}
+    return price_data;
+  }
+
+  const fetchTransactions=async(firstCol,firstDoc)=>{
+    const TransactionsFirst=await firestore().collection(firstCol).where('transferFrom','==',firstDoc).get();
+    const TransactionsSecond=await firestore().collection(firstCol).where('transferTo','==',firstDoc).get();
+   const TransFirst=TransactionsFirst.docs.map(doc=>({id:doc.data().transferFrom,...doc.data()}))
+   const TransSecond=TransactionsSecond.docs.map(doc=>({id:doc.data().transferFrom,...doc.data()}))
+   let TransTotal=[...TransFirst,...TransSecond];
+   return TransTotal;
+  }
 
 export default function HomeScreen({navigation}) {
   const[t,i18n]=useTranslation();
   const[modalVisible,setModalVisible]=useState(false);
   const[balanceVal,showBalanceVal]=useState(false);
   const[cardsVisible,setCardsVisible]=useState(false);
-  const[foundTransactions,setFoundTransactions]=useState(true);
   const username=useSelector(state=>state.auth.username);
-  const priceRedux=useSelector(state=>state.price.initialPrice);
- 
 
-  const dispatch=useDispatch();
-  
+ 
+  const{isLoading:Loading1,error:error1,isError:Error1,isFetching:Fetching1,data:updatedPrice}=useQuery('updatedPrice',()=>fetchPriceFromUser('Users',username))
+  const{isLoading:Loading2,error:error2,isError:Error2,isFethcing:Fetching2,data:Transactions}=useQuery('Transactions',()=>fetchTransactions('Transactions',username))
   useEffect(()=>{
     const unsubscribe = navigation.addListener('focus', () => {
       setCardsVisible(false);
     }); 
   },[cardsVisible]);
 
-  useEffect(()=>{
-    async function getPrice()
-    {
-      try
-      {
-        const Price=await firestore().collection('Users').doc(username).get();
-       dispatch(PriceActions.addPrice({
-        updatedPrice:Price._data.price
-       }))
-      }
-      catch(err)
-      {
-        console.log('err',err);
-      }
-    }
-    getPrice();
-  },[])
-  useEffect(()=>{
-    async function getTransactions()
-    {
-      try
-      {
-        console.log('username',username);
-        const Transactions=[];
-        const TransactionsFirst=await firestore().collection('Transactions').where('transferFrom','==',username).get();
-        const TransactionsSecond=await firestore().collection('Transactions').where('transferTo','==',username).get();
-        const [TransactionFirst, TransactionSecond] = await Promise.all([
-          TransactionsFirst,
-          TransactionsSecond
-        ]);
-        const TransactionOne=TransactionFirst.docs;
-        const TransactionTwo=TransactionSecond.docs;
-        console.log('TransactionOne',TransactionOne);
-        console.log('TransasctionTwo',TransactionTwo);
-        console.log('TransactionOnelength',TransactionOne.length);
-        console.log('TransactionTwoLength',TransactionTwo.length);
-        if(TransactionOne.length>0&&TransactionTwo.length>0)
-        {
-          TransactionOne.forEach(Trans=>
-            Transactions.push(Trans._data)
-          )
-          TransactionTwo.forEach(Trans=>
-              Transactions.push(Trans._data)
-          )
-        }
-        if(TransactionOne.length>0&&TransactionTwo.length===0)
-        {
-          TransactionOne.forEach(Trans=>
-            Transactions.push(Trans._data)
-            )
-        }
-        if(TransactionOne.length===0&&TransactionTwo.length>0)
-        {
-          TransactionTwo.forEach(Trans=>
-            Transactions.push(Trans._data)
-            )
-        }
-         console.log("Transactions",Transactions);
-       let list=[];
-
-       Transactions.forEach((Trans)=>{
-        list.push({id:Math.random(),...Trans})
-        dispatch(TransferActions.addTransfer({
-          id:Math.random(),
-         typeofTransfer:Trans.typeofTransfer,
-         amount:Trans.amount,
-         reason:Trans.reason,
-         date:Trans.date,
-         img:Trans.img,
-         transferFrom:Trans.transferFrom,
-         transferTo:Trans.transferTo
-       }))
-       }
-       )
-      }
-      catch(err)
-      {
-        console.log('err',err);
-      }
-    }
-    getTransactions();
-  },[])
+  
   function showBalanceHandler()
   {
     setModalVisible(true);
@@ -120,6 +53,18 @@ export default function HomeScreen({navigation}) {
   {
     showBalanceVal(true);
     setModalVisible(false);
+  }
+  if(Loading1||Fetching1||Loading2||Fetching2)
+  {
+    return <Text>Loading....</Text>;
+  }
+  if(Error1)
+  {
+    return <Text>{error1}</Text>
+  }
+  if(Error2)
+  {
+    return <Text>{error2}</Text>
   }
   return (
         <View style={styles.container}>
@@ -144,7 +89,7 @@ export default function HomeScreen({navigation}) {
       showBalanceHandler={showBalanceHandler}
       balanceVal={balanceVal}
       setCardsVisible={setCardsVisible}
-      price={priceRedux}
+      price={updatedPrice?.updatedPrice}
       />}
      { <History
       cardsVisible={cardsVisible}

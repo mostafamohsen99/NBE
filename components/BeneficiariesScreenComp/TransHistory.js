@@ -1,6 +1,8 @@
 import { StyleSheet, Text, View,FlatList} from 'react-native'
 import React from 'react'
+//import { TRANSACTIONS } from '../../dummy_data/dummyData'
 import HistoryItems from '../HomeScreenComp/HistoryItems'
+
 const TransHistory = ({list}) => {
  
   return (

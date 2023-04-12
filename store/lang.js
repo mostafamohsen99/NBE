@@ -20,7 +20,7 @@ const langSlice=createSlice({
             const isFromDrawer=action.payload;
            // console.log('isFromDrawerRedux',action.payload);
             state.isFromDrawer=isFromDrawer;
-            console.log(state.isFromDrawer);
+         //   console.log(state.isFromDrawer);
         }
     }
 })

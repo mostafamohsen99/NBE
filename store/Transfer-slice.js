@@ -18,8 +18,8 @@ const TransferSlice=createSlice({
                 date:newItem.date,
                 img:newItem.img
             })
-           console.log("state",state.items);
-           console.log('aded')
+         //  console.log("state",state.items);
+          // console.log('aded')
         },
         removeTransfer(state)
         {

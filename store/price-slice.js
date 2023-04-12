@@ -11,7 +11,7 @@ const PriceSlice=createSlice({
         {
             const newPrice=action.payload;
             state.initialPrice=newPrice.updatedPrice;
-            console.log('state.initialPrice',state.initialPrice);
+          //  console.log('state.initialPrice',state.initialPrice);
         }
     }
 })

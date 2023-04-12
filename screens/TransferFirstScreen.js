@@ -12,8 +12,11 @@ import CustomText from '../components/UI/CustomText'
 import { BenefecierActions } from '../store/Benefecier-slice'
 import { useSelector } from 'react-redux'
 import firestore from '@react-native-firebase/firestore';
+import {useQueryClient } from 'react-query'
 
 const TransferFirstScreen = () => {
+    const queryClient=useQueryClient();
+    const price_data=queryClient.getQueryData('updatedPrice');
     const items=useSelector(state=>state.Benefecier.items);
     const dispatch=useDispatch();
     const [t,i18n]=useTranslation();
@@ -47,15 +50,6 @@ const TransferFirstScreen = () => {
     {
         const id=Math.random().toString();
         const d=new Date();
-        // dispatch(TransferActions.addTransfer({
-        //     id:id,
-        //     typeofTransfer:typeofTransfer,
-        //     transferFrom:transferForm,
-        //     transferTo:transferTo,
-        //     amount:amount,
-        //     reason:reason,
-        //     date:d.toISOString().slice(0,10)
-        // }))
         navigation.navigate('SecondMobNumber',
         {
             id:id,

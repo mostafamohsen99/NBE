@@ -28,16 +28,7 @@ const PanResponders= () => {
   )[0];
 
   return (
-    // <View style={styles.container}>
-    //   <Text style={styles.titleText}>Drag this box!</Text>
-    //   <Animated.View
-    //     style={{
-    //       transform: [{translateX: pan.x}, {translateY: pan.y}],
-    //     }}
-    //     {...panResponder.panHandlers}>
-    //     <View style={styles.box} />
-    //   </Animated.View>
-    // </View>
+
     <View style={{flexDirection:'row'}}>
 
         <View style={{justifyContent:'center',alignItems:'flex-start',marginHorizontal:20,marginTop:20}}>

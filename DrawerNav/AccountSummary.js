@@ -4,7 +4,7 @@ import React from 'react'
 const AccountSummary = () => {
   return (
     <View>
-      <Text>Accountummary</Text>
+      <Text>AccountSummary</Text>
     </View>
   )
 }
